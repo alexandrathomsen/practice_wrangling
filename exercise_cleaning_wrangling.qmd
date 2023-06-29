@@ -43,41 +43,42 @@ summary(lobster_traps)
 
 
 ## Exercise 1
+
 ```{r}
 unique(lobster_abundance$SIZE_MM)
 ```
 
 Changing -99999 to NA 
 ```{r}
-lobster_abundance_clean <- lobster_abundance %>% 
+lobster_abundance <- lobster_abundance %>% 
   mutate(SIZE_MM = na_if(SIZE_MM,-99999.0))
 ```
 
 Checking above
 ```{r}
-length(lobster_abundance$SIZE_MM[lobster_abundance$SIZE_MM==-99999.0])
-```
-
-```{r}
-lobster_abundance_clean %>% 
-  filter(is.na(SIZE_MM))
+unique(lobster_abundance$SIZE_MM)
 ```
 
 
 ## Exercise 2 
-Carapace length >70 mm for lobsters at Arroyo Quemado (AQUE) site
 
+Carapace length >70 mm for lobsters at Arroyo Quemado (AQUE) site
 ```{r}
-lobster_abundance_clean %>% 
+aque_70mm <- lobster_abundance %>% 
   filter(SITE=="AQUE",SIZE_MM>70)
 ```
 
 
 ## Exercise 3
 
+Subset of traps with data
 ```{r}
-lobster_traps %>% 
-  
+traps_withdata <- lobster_abundance %>% 
+  filter(COUNT!=0)
+```
+
+```{r}
+
 ```
 
 
