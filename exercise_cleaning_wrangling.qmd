@@ -71,14 +71,11 @@ aque_70mm <- lobster_abundance %>%
 
 ## Exercise 3
 
-Subset of traps with data
+Subset of traps for sites with data
 ```{r}
-traps_withdata <- lobster_abundance %>% 
-  filter(COUNT!=0)
-```
-
-```{r}
-
+abundance_sites <- unique(lobster_abundance$SITE)
+traps_withdata <- lobster_traps %>% 
+  filter(SITE %in% abundance_sites)
 ```
 
 
